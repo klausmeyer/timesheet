@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+ .entries_holiday td, .entries_flextime td {
+  background-color: lightblue;
+}
+
+.number-positive {
+  color: green;
+}
+
+.number-negative {
+  color: red;
+}
+
+.summary td {
+  font-weight: bold;
+}
