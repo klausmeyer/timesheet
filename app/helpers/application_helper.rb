@@ -15,11 +15,13 @@ module ApplicationHelper
   def humanized_duration(duration)
     return if duration.nil?
 
-    parts = ActiveSupport::Duration.build(duration.hours).parts
+    parts = ActiveSupport::Duration.build(duration.hours).parts.except(:seconds)
 
-    parts = {hours: 0} if parts == {seconds: 0}
+    return '0' if parts.blank?
 
-    parts.except(:seconds).collect do |key, val|
+    parts[:hours] += parts.delete(:days) * 24.0 if parts.key?(:days)
+
+    parts.collect do |key, val|
       t(:"datetime.humanized_duration.x_#{key}", count: val)
     end.join(', ')
   end
