@@ -19,7 +19,7 @@ module ApplicationHelper
 
     return '0' if parts.blank?
 
-    parts[:hours] += parts.delete(:days) * 24.0 if parts.key?(:days)
+    parts[:hours] += parts.delete(:days) * 24 if parts.key?(:days)
 
     parts.collect do |key, val|
       t(:"datetime.humanized_duration.x_#{key}", count: val)
