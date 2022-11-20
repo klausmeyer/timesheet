@@ -10,17 +10,14 @@ module Entries
     end
 
     def time_break
-      if time_working > 9
-        1.0
-      elsif time_working > 6
-        0.5
-      else
-        0.0
-      end
+      hours = 0.00
+      hours = 0.50 if time_working > 6.0
+      hours = 0.75 if time_working > 9.0
+      hours
     end
 
     def time_is
-      time_working - time_break
+      (time_working - time_break)
     end
 
     def time_should
