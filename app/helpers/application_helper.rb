@@ -7,7 +7,8 @@ module ApplicationHelper
     return if number.nil?
 
     content_tag :span, class: {number: true, 'number-positive': number.positive? , 'number-negative': number.negative?} do
-      humanized_duration(number).to_s
+      concat '+' if number.positive?
+      concat humanized_duration(number).to_s
     end
   end
 
