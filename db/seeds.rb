@@ -11,6 +11,8 @@ user = User.first_or_create do |u|
 end
 
 if user.entries.none?
+  user.entries << Entries::Manual.new(date: '2021-12-31', time_manual: 23.0)
+
   user.entries << Entries::General.new(date: '2022-10-31', start_time: '08:59', end_time: '17:29')
   user.entries << Entries::Holiday.new(date: '2022-11-01')
   user.entries << Entries::General.new(date: '2022-11-02', start_time: '08:59', end_time: '17:29')

@@ -1,9 +1,6 @@
 <h1>Dashboard</h1>
 
-<% @entries.group_by { |e| e.date.year }.each do |year, year_entries| %>
-  <h2><%= t('.year') %> <%= year %></h2>
-
-  <!-- Yearly Summary -->
+  <!-- Summary -->
   <table border="1" cellpadding="5" cellspacing="1" width="100%">
     <colgroup>
       <col width="10%" />
@@ -18,9 +15,12 @@
     </colgroup>
     <tr class="summary">
       <td colspan="8"><%= t('.balance') %></td>
-      <td align="right"><%= color_coded_number(year_entries.sum(&:time_diff)) %></td>
+      <td align="right"><%= color_coded_number(@entries.sum(&:time_diff)) %></td>
     </tr>
   </table>
+
+<% @entries.group_by { |e| e.date.year }.each do |year, year_entries| %>
+  <h2><%= t('.year') %> <%= year %></h2>
 
   <% year_entries.group_by { |e| e.date.cweek }.each do |week, week_entries| %>
     <h3><%= t('.week') %> <%= week %></h2>

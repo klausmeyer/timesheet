@@ -10,3 +10,6 @@ en:
       x_hours:
         one: '%{count}h'
         other: '%{count}h'
+      x_days:
+        one: '%{count}d'
+        other: '%{count}d'
