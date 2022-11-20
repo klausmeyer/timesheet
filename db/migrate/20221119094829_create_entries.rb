@@ -7,6 +7,7 @@ class CreateEntries < ActiveRecord::Migration[7.0]
       t.time       :start_time
       t.time       :end_time
       t.decimal    :time_manual
+      t.string     :comment
 
       t.timestamps
     end

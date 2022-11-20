@@ -10,7 +10,7 @@ user = User.first_or_create do |u|
   u.daily_working_hours = 8.0
 end
 
-if user.entries.none?
+if user.entries.none? && ENV['DUMMY_ENTRIES'].present?
   user.entries << Entries::Manual.new(date: '2021-12-31', time_manual: 23.0)
 
   user.entries << Entries::General.new(date: '2022-10-31', start_time: '08:59', end_time: '17:29')
