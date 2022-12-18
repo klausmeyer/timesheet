@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @entry = Entries::Base.new(type: params[:type] || 'Entries::General')
+    @entry = Entries::Base.new(type: params[:type] || "Entries::General")
   rescue ActiveRecord::SubclassNotFound
     @entry = Entries::General.new
   end

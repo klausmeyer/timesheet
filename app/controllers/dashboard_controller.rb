@@ -10,8 +10,8 @@ class DashboardController < ApplicationController
     {
       user:       current_user,
       date:       Date.today,
-      start_time: '08:00',
-      end_time:   '16:30',
+      start_time: "08:00",
+      end_time:   "16:30"
     }
   end
 end

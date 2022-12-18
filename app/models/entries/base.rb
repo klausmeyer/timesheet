@@ -1,6 +1,6 @@
 module Entries
   class Base < ApplicationRecord
-    self.table_name = 'entries'
+    self.table_name = "entries"
 
     belongs_to :user
 

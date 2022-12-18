@@ -1,26 +1,26 @@
-require 'csv'
+require "csv"
 
 module CsvImport
   extend self
 
-  FILE = '/Users/meyer/Desktop/Timesheet.csv'.freeze
+  FILE = "/Users/meyer/Desktop/Timesheet.csv".freeze
 
   def run
-    table = CSV.parse(File.read(FILE), headers: true, col_sep: ';')
+    table = CSV.parse(File.read(FILE), headers: true, col_sep: ";")
 
     table.each do |row|
-      date    = row['Tag'].presence
-      comment = row['Kommentar'].presence
+      date    = row["Tag"].presence
+      comment = row["Kommentar"].presence
 
       next if date.nil?
 
       case comment
-      when 'Urlaub', 'Brückentag'
+      when "Urlaub", "Brückentag"
         user.entries << Entries::Vacation.new(
           date:    date,
           comment: comment
         )
-      when 'Feiertag'
+      when "Feiertag"
         user.entries << Entries::Holiday.new(
           date:    date,
           comment: comment
@@ -30,7 +30,7 @@ module CsvImport
           date:    date,
           comment: comment
         )
-      when 'Krank'
+      when "Krank"
         user.entries << Entries::SickLeave.new(
           date:    date,
           comment: comment
@@ -38,14 +38,14 @@ module CsvImport
       when /b(ue|ü)ro|office/i, nil
         user.entries << Entries::General.new(
           date:       date,
-          start_time: row['Kommen'],
-          end_time:   row['Gehen'],
+          start_time: row["Kommen"],
+          end_time:   row["Gehen"],
           comment:    comment
         )
       when /Pauschal/
         user.entries << Entries::Manual.new(
           date:        date,
-          time_manual: row['Ist'],
+          time_manual: row["Ist"],
           comment:     comment
         )
       else
