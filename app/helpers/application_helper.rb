@@ -7,7 +7,7 @@ module ApplicationHelper
     return if number.nil?
 
     content_tag :span, class: {number: true, "number-positive": number.positive?, "number-negative": number.negative?} do
-      concat "+" if number.positive?
+      concat number.negative? ? "- " : "+ "
       concat humanized_duration(number).to_s
     end
   end
@@ -15,15 +15,11 @@ module ApplicationHelper
   def humanized_duration(duration)
     return if duration.nil?
 
-    parts = ActiveSupport::Duration.build(duration.hours).parts.except(:seconds)
+    duration = duration.abs
 
-    return "0" if parts.blank?
+    hours   = duration.floor
+    minutes = (duration % 1.0) * 60
 
-    parts[:days] += parts.delete(:weeks) * 7 if parts.key?(:weeks)
-    parts[:hours] += parts.delete(:days) * 24 if parts.key?(:days)
-
-    parts.collect do |key, val|
-      t(:"datetime.humanized_duration.x_#{key}", count: val)
-    end.join(", ")
+    "%dh %dm" % [hours, minutes]
   end
 end

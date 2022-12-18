@@ -18,7 +18,7 @@ RSpec.feature "Adding entries", type: :system do
 
     expect(page).to have_text "Year 2022"
     expect(page).to have_text "Week 49"
-    expect(page).to have_text "Mon, 05 Dec General 08:15 16:45 8h, 30m 30m 8h 8h 0"
+    expect(page).to have_text "Mon, 05 Dec General 08:15 16:45 8h 30m 0h 30m 8h 0m 8h 0m + 0h 0m"
   end
 
   scenario "Adding new vacation entry" do
@@ -32,7 +32,7 @@ RSpec.feature "Adding entries", type: :system do
 
     expect(page).to have_text "Year 2022"
     expect(page).to have_text "Week 49"
-    expect(page).to have_text "Mon, 05 Dec Vacation - - - - 0 0 0"
+    expect(page).to have_text "Mon, 05 Dec Vacation - - - - 0h 0m 0h 0m + 0h 0m"
     expect(page).to have_text "Vacation Days 1"
   end
 
@@ -48,6 +48,6 @@ RSpec.feature "Adding entries", type: :system do
 
     expect(page).to have_text "Year 2022"
     expect(page).to have_text "Week 49"
-    expect(page).to have_text "Mon, 05 Dec Manual - - - - 5h, 15m 0 +5h, 15m"
+    expect(page).to have_text "Mon, 05 Dec Manual - - - - 5h 15m 0h 0m + 5h 15m"
   end
 end

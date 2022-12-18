@@ -2,14 +2,6 @@ en:
   date:
     formats:
       default_html: '%a, <strong>%d</strong> %b'
-  datetime:
-    humanized_duration:
-      x_minutes:
-        one: '%{count}m'
-        other: '%{count}m'
-      x_hours:
-        one: '%{count}h'
-        other: '%{count}h'
   entries:
     entry:
       dropdown:
