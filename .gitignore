@@ -29,3 +29,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Tempfiles during manual build
+dist/*.tgz
+dist/helm/timesheet/charts/*
