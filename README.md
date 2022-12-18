@@ -1,24 +1,27 @@
-# README
+# Timesheet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails based "Timesheet" application.
 
-Things you may want to cover:
+Might not be useable by everyone ;)
 
-* Ruby version
+## Installation
 
-* System dependencies
+The application is designed to run inside Kubernetes.
 
-* Configuration
+### Requirements
 
-* Database creation
+* Make
+* Docker
+* Helm
+* Kubernetes
 
-* Database initialization
+### Workflow:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell
+$ cd dist
+$ make docker-build # Builds the docker-image
+$ make docker-push  # Pushes it to a local registry (req.)
+$ make helm-build   # Builds the helm-chart
+$ make helm-push    # Pushes it to a local registry (req.)
+$ make helm-install # Installs it in current k8s context
+```
