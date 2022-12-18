@@ -4,7 +4,7 @@ version := 0.1.0-dev
 # registry := registry.home.klaus-meyer.net
 registry := 127.0.0.1:5000
 
-all: clean docker-push helm-check helm-build helm-push
+all: clean docker-push helm-check helm-build helm-push helm-install
 
 clean:
 	rm -f *.tgz
