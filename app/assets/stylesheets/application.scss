@@ -14,22 +14,18 @@
  *= require_self
  */
 
-.entries_holiday td, .entries_vacation td, .entries_flextime td {
-  background-color: lightblue;
-}
+ @import "bootstrap";
 
-.entries_sick_leave td {
-  background-color: lightcoral;
-}
+.entries_flextime   { @extend .table-primary; }
+.entries_holiday    { @extend .table-primary; }
+.entries_manual     { @extend .table-warning; }
+.entries_sick_leave { @extend .table-danger;  }
+.entries_vacation   { @extend .table-primary; }
 
 .number-positive {
-  color: green;
+  color: var(--bs-success);
 }
 
 .number-negative {
-  color: red;
-}
-
-.summary td {
-  font-weight: bold;
+  color: var(--bs-danger);
 }

@@ -1,11 +1,11 @@
 <tr class="<%= dom_class(entry) %>">
-  <td align="right"><%= l(entry.date, format: :default_html).html_safe %></td>
-  <td align="center"><%= entry.type.demodulize %></td>
-  <td align="right"><%= value_or_dash entry.start_time&.to_fs(:time) %></td>
-  <td align="right"><%= value_or_dash entry.end_time&.to_fs(:time) %></td>
-  <td align="right"><%= value_or_dash humanized_duration(entry.time_working) %></td>
-  <td align="right"><%= value_or_dash humanized_duration(entry.time_break) %></td>
-  <td align="right"><%= value_or_dash humanized_duration(entry.time_is) %></td>
-  <td align="right"><%= value_or_dash humanized_duration(entry.time_should) %></td>
-  <td align="right"><%= value_or_dash color_coded_number(entry.time_diff) %></td>
+  <td class="text-end"><%= l(entry.date, format: :default_html).html_safe %></td>
+  <td class="text-end"><%= entry.type.demodulize %></td>
+  <td class="text-end"><%= value_or_dash entry.start_time&.to_fs(:time) %></td>
+  <td class="text-end"><%= value_or_dash entry.end_time&.to_fs(:time) %></td>
+  <td class="text-end"><%= value_or_dash humanized_duration(entry.time_working) %></td>
+  <td class="text-end"><%= value_or_dash humanized_duration(entry.time_break) %></td>
+  <td class="text-end"><%= value_or_dash humanized_duration(entry.time_is) %></td>
+  <td class="text-end"><%= value_or_dash humanized_duration(entry.time_should) %></td>
+  <td class="text-end"><%= value_or_dash color_coded_number(entry.time_diff) %></td>
 </tr>
