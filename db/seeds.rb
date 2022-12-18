@@ -6,9 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user = User.first_or_create do |u|
-  u.daily_working_hours = 8.0
-end
+user = User.first_or_create
 
 Entries::Base.delete_all if ENV['CLEAN_ENTRIES'].present?
 
