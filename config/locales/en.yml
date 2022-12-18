@@ -10,3 +10,9 @@ en:
       x_hours:
         one: '%{count}h'
         other: '%{count}h'
+  entries:
+    create:
+      success: Entry was successfully created
+    form:
+      headline: Add entry
+      add: Add

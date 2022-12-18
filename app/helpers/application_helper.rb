@@ -19,6 +19,7 @@ module ApplicationHelper
 
     return '0' if parts.blank?
 
+    parts[:days] += parts.delete(:weeks) * 7 if parts.key?(:weeks)
     parts[:hours] += parts.delete(:days) * 24 if parts.key?(:days)
 
     parts.collect do |key, val|

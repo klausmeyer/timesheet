@@ -7,11 +7,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <div class="container">
+      <h1 class="my-4">Timesheet</h1>
+
+      <div id="flash">
+        <%= render "application/flash" %>
+      </div>
+
       <%= yield %>
     </div>
   </body>

@@ -1,0 +1,59 @@
+<% @entries.group_by { |e| e.date.year }.each do |year, year_entries| %>
+  <h3 class="my-4"><%= t(".year") %> <%= year %></h3>
+
+  <!-- Summary -->
+  <table class="table table-bordered">
+    <colgroup>
+      <col />
+      <col width="20%" />
+    </colgroup>
+    <tr class="summary">
+      <td><%= t(".vacation_days") %></td>
+      <td class="text-end"><%= year_entries.count { |e| e.is_a? Entries::Vacation } %></td>
+    </tr>
+    <tr class="summary">
+      <td><%= t(".holidays") %></td>
+      <td class="text-end"><%= year_entries.count { |e| e.is_a? Entries::Holiday } %></td>
+    </tr>
+    <tr class="summary">
+      <td><%= t(".sick_days") %></td>
+      <td class="text-end"><%= year_entries.count { |e| e.is_a? Entries::SickLeave } %></td>
+    </tr>
+  </table>
+
+  <% year_entries.group_by { |e| e.date.cweek }.each do |week, week_entries| %>
+    <h4 class="my-4"><%= t(".week") %> <%= week %></h4>
+
+    <table class="table table-bordered">
+      <colgroup>
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+      </colgroup>
+      <tr>
+        <th class="text-end"><%= t(".date") %></th>
+        <th class="text-end"><%= t(".type") %></th>
+        <th class="text-end"><%= t(".start_time") %></th>
+        <th class="text-end"><%= t(".end_time") %></th>
+        <th class="text-end"><%= t(".time_working") %></th>
+        <th class="text-end"><%= t(".time_break") %></th>
+        <th class="text-end"><%= t(".time_is") %></th>
+        <th class="text-end"><%= t(".time_should") %></th>
+        <th class="text-end"><%= t(".time_diff") %></th>
+      </tr>
+      <!-- Entries -->
+      <%= render partial: "entries/entry", collection: week_entries, as: :entry %>
+      <!-- Summary -->
+      <tr class="summary">
+        <td colspan="8"><strong><%= t(".sum") %></strong></td>
+        <td class="text-end"><%= color_coded_number(week_entries.sum(&:time_diff)) %></td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
