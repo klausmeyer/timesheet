@@ -9,7 +9,7 @@
       <%= f.label :type, class: "col-sm-2 col-form-label" %>
 
       <div class="col-sm-10">
-        <%= f.select :type, Entries::Base.subclasses.map(&:name).sort, {}, {class: "form-select", data: {action: "change->entries--type#change", "entries--type-target": "select"}} %>
+        <%= f.select :type, Entries::AVAILABLE_TYPES, {}, {class: "form-select", data: {action: "change->entries--type#change", "entries--type-target": "select"}} %>
       </div>
     </div>
 

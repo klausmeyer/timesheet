@@ -1,5 +1,7 @@
 module Entries
   class Manual < Base
+    validates :time_manual, presence: true, allow_blank: false
+
     def time_working
       nil
     end
