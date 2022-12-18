@@ -15,12 +15,24 @@ class EntriesController < ApplicationController
     if @entry.save
       flash.now[:success] = t(".success")
 
-      @entries = current_user.entries.sorted_for_dashboard
+      @entries = current_user.entries.sorted_for_dashboard # FIXME: Find a better way to reload the list
 
       render :create
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    if current_user.entries.available.find(params[:id]).delete
+      flash.now[:success] = t(".success")
+    else
+      flash.now[:danger] = t(".fail")
+    end
+
+    @entries = current_user.entries.sorted_for_dashboard # FIXME: Find a better way to reload the list
+
+    render :destroy
   end
 
   private

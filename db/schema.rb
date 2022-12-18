@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_094829) do
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_entries_on_deleted_at"
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 

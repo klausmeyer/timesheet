@@ -11,8 +11,16 @@ en:
         one: '%{count}h'
         other: '%{count}h'
   entries:
+    entry:
+      dropdown:
+        edit: Edit
+        delete: Delete
+      confirm: Are you sure?
     create:
       success: Entry was successfully created
+    destroy:
+      success: Entry was successfully removed
+      fail: Could not remove entry
     form:
       headline: Add entry
       add: Add

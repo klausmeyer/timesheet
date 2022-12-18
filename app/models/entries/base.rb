@@ -4,7 +4,17 @@ module Entries
 
     belongs_to :user
 
-    scope :sorted_for_dashboard, -> { order(Arel.sql("DATE_PART('year', date) DESC, DATE_PART('week', date) DESC, date ASC")) }
+    scope :available, -> { where(deleted_at: nil) }
+    scope :sorted_for_dashboard, -> { available.order(Arel.sql("DATE_PART('year', date) DESC, DATE_PART('week', date) DESC, date ASC")) }
+
+    alias_method :really_delete, :delete
+
+    def delete
+      self.deleted_at = Time.current
+      save(touch: false)
+    end
+
+    # Interface methods for calculations
 
     def time_working
       raise NotImplementedError

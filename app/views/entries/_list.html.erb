@@ -26,6 +26,7 @@
 
     <table class="table table-bordered">
       <colgroup>
+        <col width="5%" />
         <col width="10%" />
         <col width="10%" />
         <col width="10%" />
@@ -37,6 +38,7 @@
         <col width="10%" />
       </colgroup>
       <tr>
+        <th class="text-end"><%= t(".action") %></th>
         <th class="text-end"><%= t(".date") %></th>
         <th class="text-end"><%= t(".type") %></th>
         <th class="text-end"><%= t(".start_time") %></th>
@@ -51,7 +53,7 @@
       <%= render partial: "entries/entry", collection: week_entries, as: :entry %>
       <!-- Summary -->
       <tr class="summary">
-        <td colspan="8"><strong><%= t(".sum") %></strong></td>
+        <td colspan="9"><strong><%= t(".sum") %></strong></td>
         <td class="text-end"><%= color_coded_number(week_entries.sum(&:time_diff)) %></td>
       </tr>
     </table>

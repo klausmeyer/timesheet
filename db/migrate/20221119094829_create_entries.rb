@@ -8,8 +8,11 @@ class CreateEntries < ActiveRecord::Migration[7.0]
       t.time       :end_time
       t.decimal    :time_manual
       t.string     :comment
-
-      t.timestamps
+      t.datetime   :created_at, null: false
+      t.datetime   :updated_at, null: false
+      t.datetime   :deleted_at
     end
+
+    add_index :entries, :deleted_at
   end
 end
