@@ -51,6 +51,13 @@ gem "sassc-rails"
 # Bootstrap 5 ruby gem for Ruby on Rails (Sprockets/Importmaps) [https://github.com/twbs/bootstrap-rubygem]
 gem "bootstrap"
 
+# Flexible authentication solution for Rails with Warden. [https://github.com/heartcombo/devise]
+gem "devise"
+
+# Devise views with Bootstrap 5 and i18n support for Rails. [https://github.com/kroger/devise-bootstrap5]
+gem "devise-i18n"
+gem "devise-bootstrap5"
+
 # Centralization of locale data collection for Ruby on Rails. [https://github.com/svenfuchs/rails-i18n]
 gem "rails-i18n"
 
@@ -60,6 +67,9 @@ group :development, :test do
 
   # Behaviour Driven Development for Ruby on Rails [https://github.com/rspec/rspec-rails]
   gem "rspec-rails"
+
+  # Fixtures replacement with a straightforward definition syntax [https://github.com/thoughtbot/factory_bot_rails]
+  gem "factory_bot_rails"
 
   # Ruby Style Guide, with linter & automatic code fixer [https://github.com/testdouble/standard]
   gem "standard"

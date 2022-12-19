@@ -1,4 +1,7 @@
 en:
+  application:
+    header:
+      logout: Logout
   date:
     formats:
       default_html: '%a, <strong>%d</strong> %b'

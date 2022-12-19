@@ -1,10 +1,12 @@
 require "rails_helper"
 
 RSpec.feature "Listing entries", type: :system do
-  let(:current_user) { User.create }
-  let(:other_user)   { User.create }
+  let(:current_user) { FactoryBot.create :user, :ready_for_login }
+  let(:other_user)   { FactoryBot.create :user, :ready_for_login }
 
   before do
+    login_as(current_user)
+
     current_user.entries << Entries::General.new(date: "2022-12-05", start_time: "08:59", end_time: "17:29")
     current_user.entries << Entries::General.new(date: "2022-12-06", start_time: "08:59", end_time: "17:29")
     current_user.entries << Entries::General.new(date: "2022-12-07", start_time: "08:59", end_time: "17:29")

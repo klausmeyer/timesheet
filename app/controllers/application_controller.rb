@@ -1,13 +1,11 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
+
   add_flash_types :success, :danger, :warning, :info
 
   helper_method :current_user
 
   private
-
-  def current_user
-    @current_user ||= User.first_or_create
-  end
 
   def new_entry_with_defaults
     Entries::Base.new(new_entry_defaults.merge(type: params[:type] || "Entries::General"))

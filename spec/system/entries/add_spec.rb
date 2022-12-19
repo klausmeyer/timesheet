@@ -3,7 +3,11 @@ require "rails_helper"
 RSpec.feature "Adding entries", type: :system do
   include DateAndTimeHelper
 
-  let!(:current_user) { User.create }
+  let!(:current_user) { FactoryBot.create :user, :ready_for_login }
+
+  before do
+    login_as(current_user)
+  end
 
   scenario "Adding new general entry" do
     visit "/"

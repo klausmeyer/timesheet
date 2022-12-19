@@ -20,8 +20,8 @@ Bundler.require(*Rails.groups)
 
 module Timesheet
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    # Initialize configuration defaults for originally generated Rails version.
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -35,6 +35,8 @@ module Timesheet
     config.generators.system_tests = nil
 
     ## CUSTOM
+
+    config.action_mailer.default_url_options = {host: "localhost", port: 3000} # FIXME
 
     config.action_view.field_error_proc = proc do |html_tag, instance|
       html_tag

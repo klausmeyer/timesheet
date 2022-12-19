@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user = User.first_or_create
+user = User.first_or_create(email: "admin@example.com") do |u|
+  u.password = "password"
+end
 
 Entries::Base.delete_all if ENV["CLEAN_ENTRIES"].present?
 

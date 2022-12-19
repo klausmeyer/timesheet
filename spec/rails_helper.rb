@@ -69,4 +69,6 @@ RSpec.configure do |config|
   config.before(type: :system) do
     driven_by(:selenium_chrome_headless)
   end
+
+  config.include Warden::Test::Helpers, type: :system
 end
