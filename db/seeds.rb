@@ -7,7 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 user = User.first_or_create(email: "admin@example.com") do |u|
-  u.password = "password"
+  u.confirmed_at         = Time.current
+  u.confirmation_sent_at = Time.current
+  u.confirmation_token   = SecureRandom.hex(16)
+  u.password             = "password"
 end
 
 Entries::Base.delete_all if ENV["CLEAN_ENTRIES"].present?

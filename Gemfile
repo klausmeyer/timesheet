@@ -56,7 +56,6 @@ gem "devise"
 
 # Devise views with Bootstrap 5 and i18n support for Rails. [https://github.com/kroger/devise-bootstrap5]
 gem "devise-i18n"
-gem "devise-bootstrap5"
 
 # Centralization of locale data collection for Ruby on Rails. [https://github.com/svenfuchs/rails-i18n]
 gem "rails-i18n"
