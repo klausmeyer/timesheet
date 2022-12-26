@@ -12,11 +12,12 @@
   </tr>
 </table>
 
-<!-- Add -->
-<h2><%= t(".add.headline") %></h2>
-<%= render "entries/form" %>
+<!-- Add/Edit -->
+<%= turbo_frame_tag :entry, src: new_entry_path do %>
+  <%= render "application/loading" %>
+<% end %>
 
 <!-- Data -->
-<%= turbo_frame_tag :entries do %>
-  <%= render "entries/list" %>
+<%= turbo_frame_tag :entries, src: entries_path do %>
+  <%= render "application/loading" %>
 <% end %>

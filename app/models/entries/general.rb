@@ -1,6 +1,6 @@
 module Entries
   class General < Base
-    with_options presence: true, allow_blank: false do
+    with_options presence: true do
       validates :start_time
       validates :end_time
     end

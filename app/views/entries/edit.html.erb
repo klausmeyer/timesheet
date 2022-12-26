@@ -1,3 +1,5 @@
-<h2><%= t(".headline") %></h2>
+<%= turbo_frame_tag :entry do %>
+  <h2><%= t(".headline") %></h2>
 
-<%= render "form" %>
+  <%= render "form" %>
+<% end %>

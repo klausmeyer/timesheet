@@ -5,8 +5,6 @@ en:
       logout: Logout
   dashboard:
     show:
-      add:
-        headline: Add entry
       balance: Balance
   date:
     formats:
@@ -45,7 +43,7 @@ en:
       week: Week
       year: Year
     new:
-      headline: Headline
+      headline: Add entry
     update:
       success: Entry was successfully updated
   errors:

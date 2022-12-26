@@ -19,6 +19,8 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = current_user.entries.available.find params[:id]
+
+    @entry[:type] = params[:type] if params[:type]
   end
 
   def update

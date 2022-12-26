@@ -4,8 +4,10 @@ export default class extends Controller {
   static targets = ["select"]
 
   change() {
-    let frame = document.getElementById("add_entry")
+    let frame = this.selectTarget.closest("#entry")
+    let path = frame.src.split("?")[0]
 
-    frame.src = `/entries/new?type=${this.selectTarget.value}`
+    frame.src = `${path}?type=${this.selectTarget.value}`
+    frame.reload()
   }
 }

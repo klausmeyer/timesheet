@@ -16,7 +16,8 @@
 
  @import "bootstrap";
 
-.alert-alert { @extend .alert-info; }
+.alert-alert  { @extend .alert-info; }
+.alert-notice { @extend .alert-info; }
 
 .entries_flextime   { @extend .table-primary; }
 .entries_holiday    { @extend .table-primary; }

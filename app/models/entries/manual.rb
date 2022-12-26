@@ -1,6 +1,6 @@
 module Entries
   class Manual < Base
-    validates :time_manual, presence: true, allow_blank: false
+    validates :time_manual, presence: true
 
     def time_working
       nil
@@ -11,7 +11,7 @@ module Entries
     end
 
     def time_is
-      time_manual
+      time_manual.to_d
     end
 
     def time_should
