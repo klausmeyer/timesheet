@@ -72,6 +72,9 @@ group :development, :test do
 
   # Ruby Style Guide, with linter & automatic code fixer [https://github.com/testdouble/standard]
   gem "standard"
+
+  # Manage translation and localization with static analysis, for Ruby i18n [https://github.com/glebm/i18n-tasks]
+  gem "i18n-tasks"
 end
 
 group :development do

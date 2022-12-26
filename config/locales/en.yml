@@ -1,21 +1,53 @@
+---
 en:
   application:
     header:
       logout: Logout
+  dashboard:
+    show:
+      add:
+        headline: Add entry
+      balance: Balance
   date:
     formats:
-      default_html: '%a, <strong>%d</strong> %b'
+      default_html: "%a, <strong>%d</strong> %b"
+  dropdown:
+    edit: Edit
   entries:
-    entry:
-      dropdown:
-        edit: Edit
-        delete: Delete
-      confirm: Are you sure?
     create:
       success: Entry was successfully created
     destroy:
-      success: Entry was successfully removed
       fail: Could not remove entry
+      success: Entry was successfully removed
+    edit:
+      headline: Edit entry
+    entry:
+      confirm: Are you sure?
+      dropdown:
+        delete: Delete
     form:
-      headline: Add entry
-      add: Add
+      add: Submit
+    list:
+      action: Action
+      date: Date
+      end_time: End time
+      holidays: Holidays
+      sick_days: Sick Days
+      start_time: Start time
+      sum: Sum
+      time_break: Time break
+      time_diff: Time diff
+      time_is: Time is
+      time_should: Time should
+      time_working: Time working
+      type: Type
+      vacation_days: Vacation Days
+      week: Week
+      year: Year
+    new:
+      headline: Headline
+    update:
+      success: Entry was successfully updated
+  errors:
+    messages:
+      not_saved: Not saved

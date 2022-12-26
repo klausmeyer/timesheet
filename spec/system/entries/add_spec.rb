@@ -18,7 +18,7 @@ RSpec.feature "Adding entries", type: :system do
     select_date "2022-12-05", from: "entry_date"
     select_time "08:15", from: "entry_start_time"
     select_time "16:45", from: "entry_end_time"
-    click_button "Add"
+    click_button "Submit"
 
     expect(page).to have_text "Year 2022"
     expect(page).to have_text "Week 49"
@@ -32,7 +32,7 @@ RSpec.feature "Adding entries", type: :system do
 
     select "Entries::Vacation", from: "entry_type"
     select_date "2022-12-05", from: "entry_date"
-    click_button "Add"
+    click_button "Submit"
 
     expect(page).to have_text "Year 2022"
     expect(page).to have_text "Week 49"
@@ -48,7 +48,7 @@ RSpec.feature "Adding entries", type: :system do
     select "Entries::Manual", from: "entry_type"
     select_date "2022-12-05", from: "entry_date"
     fill_in "entry_time_manual", with: "5.25"
-    click_button "Add"
+    click_button "Submit"
 
     expect(page).to have_text "Year 2022"
     expect(page).to have_text "Week 49"

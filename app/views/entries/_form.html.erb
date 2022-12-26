@@ -1,9 +1,17 @@
 <%= turbo_frame_tag :add_entry do %>
-  <h2><%= t(".headline") %></h2>
-
   <%= render "entries/validation_errors" %>
 
-  <%= form_with model: @entry, scope: :entry, url: entries_path, method: :post, remote: true do |f| %>
+  <%-
+    if @entry.persisted?
+      url    = entry_path(@entry)
+      method = :patch
+    else
+      url    = entries_path
+      method = :post
+    end
+  %>
+
+  <%= form_with model: @entry, scope: :entry, url: url, method: method, remote: true do |f| %>
 
     <div class="form-group row mb-3" data-controller="entries--type">
       <%= f.label :type, class: "col-sm-2 col-form-label" %>

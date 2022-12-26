@@ -11,39 +11,51 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.build(entry_params)
 
     if @entry.save
-      flash.now[:success] = t(".success")
-
-      @entries = current_user.entries.sorted_for_dashboard # FIXME: Find a better way to reload the list
-
-      render :create
+      render_for_dashboard :create, :success, t(".success")
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+    @entry = current_user.entries.available.find params[:id]
+  end
+
+  def update
+    @entry = current_user.entries.available.find params[:id]
+
+    if @entry.update(entry_params)
+      render_for_dashboard :update, :success, t(".success")
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     if current_user.entries.available.find(params[:id]).delete
-      flash.now[:success] = t(".success")
+      render_for_dashboard :destroy, :success, t(".success")
     else
-      flash.now[:danger] = t(".fail")
+      render_for_dashboard :destroy, :danger, t(".fail")
     end
-
-    @entries = current_user.entries.sorted_for_dashboard # FIXME: Find a better way to reload the list
-
-    render :destroy
   end
 
   private
 
+  # FIXME: Find a better way to reload the list
+  def render_for_dashboard(template, flash_type, flash_value)
+    @entries = current_user.entries.sorted_for_dashboard
+
+    flash.now[flash_type] = flash_value
+
+    render template
+  end
+
   def entry_params
     params.require(:entry).permit(
-      # Base
       :date,
       :type,
-      # General
       :start_time,
       :end_time,
-      # Manual
       :time_manual
     )
   end
