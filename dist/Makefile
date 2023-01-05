@@ -1,10 +1,9 @@
 namespace := klausmeyer
 project := timesheet
 version := 0.1.0-dev
-# registry := registry.home.klaus-meyer.net
-registry := 127.0.0.1:5000
+registry := registry.home.klaus-meyer.net
 
-all: clean docker-push helm-check helm-build helm-push helm-install
+all: clean docker-build helm-check helm-build helm-push helm-install
 
 clean:
 	rm -f *.tgz
@@ -12,10 +11,8 @@ clean:
 	rm -rf helm/$(project)/charts/*
 
 docker-build:
-	docker build -t $(registry)/$(namespace)/$(project):$(version) ..
-
-docker-push: docker-build
-	docker push $(registry)/$(namespace)/$(project):$(version)
+	# docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $(registry)/$(namespace)/$(project):$(version) --push ..
+	docker buildx build --platform linux/arm64 -t $(registry)/$(namespace)/$(project):$(version) --load ..
 
 helm-bundle:
 	helm dependency build helm/$(project)
@@ -30,4 +27,4 @@ helm-push: helm-build
 	helm push *.tgz oci://$(registry)/helm-charts/$(namespace)/
 
 helm-install:
-	helm upgrade $(project) helm/$(project) --install --values helm/values-verification.yaml
+	helm upgrade $(project) helm/$(project) --install --values helm/values-verification.yaml --namespace $(project)

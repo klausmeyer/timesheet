@@ -5,7 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: 127.0.0.1:5000/klausmeyer/timesheet # registry.home.klaus-meyer.net/klausmeyer/timesheet
+  # repository: 127.0.0.1:5000/klausmeyer/timesheet
+  repository: registry.home.klaus-meyer.net/klausmeyer/timesheet
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
