@@ -1,7 +1,8 @@
 namespace := klausmeyer
 project := timesheet
 version := 0.1.0-dev
-registry := registry.home.klaus-meyer.net
+registry := 127.0.0.1:5000
+platforms := linux/amd64,linux/arm64,linux/arm/v7
 
 all: clean docker-build helm-check helm-build helm-push helm-install
 
@@ -11,8 +12,7 @@ clean:
 	rm -rf helm/$(project)/charts/*
 
 docker-build:
-	# docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $(registry)/$(namespace)/$(project):$(version) --push ..
-	docker buildx build --platform linux/arm64 -t $(registry)/$(namespace)/$(project):$(version) --load ..
+	docker buildx build --platform $(platforms) -t $(registry)/$(namespace)/$(project):$(version) --push ..
 
 helm-bundle:
 	helm dependency build helm/$(project)
