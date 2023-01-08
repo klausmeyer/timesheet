@@ -1,4 +1,4 @@
-# vim: syntax=ruby
+# -*- mode: ruby -*-
 
 s = wb.styles
 
