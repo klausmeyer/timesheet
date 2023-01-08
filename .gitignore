@@ -33,3 +33,6 @@
 # Tempfiles during manual build
 dist/*.tgz
 dist/helm/timesheet/charts/*
+
+# Helm deployment config
+dist/helm/values.yaml

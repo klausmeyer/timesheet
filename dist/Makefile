@@ -18,7 +18,7 @@ helm-bundle:
 	helm dependency build helm/$(project)
 
 helm-check: helm-bundle
-	helm install --dry-run --generate-name --values helm/values-verification.yaml helm/$(project)
+	helm install --dry-run --generate-name --values helm/values-example.yaml helm/$(project)
 
 helm-build: helm-bundle
 	helm package helm/$(project)
@@ -27,4 +27,4 @@ helm-push: helm-build
 	helm push *.tgz oci://$(registry)/helm-charts/$(namespace)/
 
 helm-install:
-	helm upgrade $(project) helm/$(project) --install --values helm/values-verification.yaml --namespace $(project)
+	helm upgrade $(project) helm/$(project) --install --values helm/values-example.yaml --namespace $(project)

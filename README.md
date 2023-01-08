@@ -11,7 +11,7 @@ The application is designed to run inside Kubernetes.
 ### Requirements
 
 * Make
-* Docker
+* Docker (with buildx setup for multi-arch build)
 * Helm
 * Kubernetes
 
