@@ -60,6 +60,9 @@ gem "devise-i18n"
 # Centralization of locale data collection for Ruby on Rails. [https://github.com/svenfuchs/rails-i18n]
 gem "rails-i18n"
 
+# A Rails plugin to provide templates for the axlsx gem [https://github.com/caxlsx/caxlsx_rails]
+gem "caxlsx_rails"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]

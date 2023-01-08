@@ -1,0 +1,8 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Timesheet") do |sheet|
+  render "list", wb: wb, sheet: sheet
+end

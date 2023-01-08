@@ -1,6 +1,11 @@
 class EntriesController < ApplicationController
   def index
     @entries = current_user.entries.sorted_for_dashboard
+
+    respond_to do |f|
+      f.html
+      f.xlsx
+    end
   end
 
   def new
