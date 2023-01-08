@@ -97,3 +97,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Temorary use RC of nokogiri for native ruby 3.2 support
+gem "nokogiri", "~> 1.14.0.rc1"
