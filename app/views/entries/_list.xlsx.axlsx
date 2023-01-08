@@ -33,8 +33,8 @@ sum     = s.add_style alignment: {horizontal: :right}, num_fmt: 2, b: true
       sheet.add_row [
         entry.date,
         entry.type,
-        entry.start_time.strftime("%H:%M"),
-        entry.end_time.strftime("%H:%M"),
+        entry.start_time&.strftime("%H:%M"),
+        entry.end_time&.strftime("%H:%M"),
         entry.time_working,
         entry.time_break,
         entry.time_is,
