@@ -1,3 +1,5 @@
+# vim: syntax=ruby
+
 wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Timesheet") do |sheet|

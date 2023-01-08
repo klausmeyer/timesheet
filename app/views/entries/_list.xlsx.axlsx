@@ -1,3 +1,5 @@
+# vim: syntax=ruby
+
 s = wb.styles
 
 date    = s.add_style format_code: "yyyy-mm-dd"
