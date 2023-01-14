@@ -334,7 +334,6 @@ DEPENDENCIES
   factory_bot_rails
   i18n-tasks
   importmap-rails
-  nokogiri (~> 1.14.0.rc1)
   pg (~> 1.1)
   puma (~> 6.0)
   rails (~> 7.0.4)
