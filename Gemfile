@@ -63,6 +63,9 @@ gem "rails-i18n"
 # A Rails plugin to provide templates for the axlsx gem [https://github.com/caxlsx/caxlsx_rails]
 gem "caxlsx_rails"
 
+# Simple health check of Rails app. [https://github.com/Purple-Devs/health_check]
+gem "health_check", "~> 3.1"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
