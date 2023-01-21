@@ -32,3 +32,9 @@
 .number-negative {
   color: var(--bs-danger);
 }
+
+.has-comment {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: help;
+}

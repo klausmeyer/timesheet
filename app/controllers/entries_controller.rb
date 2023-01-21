@@ -63,7 +63,8 @@ class EntriesController < ApplicationController
       :type,
       :start_time,
       :end_time,
-      :time_manual
+      :time_manual,
+      :comment,
     )
   end
 end

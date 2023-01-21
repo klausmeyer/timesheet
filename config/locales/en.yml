@@ -27,6 +27,7 @@ en:
       add: Submit
     list:
       action: Action
+      comment: Comment
       date: Date
       end_time: End time
       holidays: Holidays

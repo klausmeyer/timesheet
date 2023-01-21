@@ -30,7 +30,7 @@
   </td>
   <td class="text-end">
     <%- # i18n-tasks-use t("date.formats.default_html") %>
-    <%= l(entry.date, format: :default_html).html_safe %>
+    <%= content_tag :span, l(entry.date, format: :default_html).html_safe, class: {"has-comment": entry.comment.present?}, title: entry.comment.presence %>
   </td>
   <td class="text-end"><%= entry.type.demodulize %></td>
   <td class="text-end"><%= value_or_dash entry.start_time&.to_fs(:time) %></td>

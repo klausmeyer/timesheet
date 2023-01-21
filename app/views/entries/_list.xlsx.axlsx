@@ -27,8 +27,9 @@ sum     = s.add_style alignment: {horizontal: :right}, num_fmt: 2, b: true
       t(".time_break"),
       t(".time_is"),
       t(".time_should"),
-      t(".time_diff")
-    ], style: [header] * 9
+      t(".time_diff"),
+      t(".comment"),
+    ], style: [header] * 10
 
     week_entries.each do |entry|
       sheet.add_row [
@@ -40,10 +41,11 @@ sum     = s.add_style alignment: {horizontal: :right}, num_fmt: 2, b: true
         entry.time_break,
         entry.time_is,
         entry.time_should,
-        entry.time_diff
-      ], style: [date, column, column, column, number, number, number, number, number]
+        entry.time_diff,
+        entry.comment,
+      ], style: [date, column, column, column, number, number, number, number, number, nil]
     end
 
-    sheet.add_row [nil] * 8 + [week_entries.sum(&:time_diff)], style: [nil] * 8 + [sum]
+    sheet.add_row [nil] * 8 + [week_entries.sum(&:time_diff)], style: [nil] * 8 + [sum, nil]
   end
 end
