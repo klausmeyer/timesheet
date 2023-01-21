@@ -48,7 +48,6 @@ class EntriesController < ApplicationController
 
   private
 
-  # FIXME: Find a better way to reload the list
   def render_for_dashboard(template, flash_type, flash_value)
     @entries = current_user.entries.sorted_for_dashboard
 
