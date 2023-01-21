@@ -1,16 +1,9 @@
 <h2 class="my-4">Dashboard</h2>
 
 <!-- Summary -->
-<table class="table table-bordered">
-    <colgroup>
-      <col />
-      <col width="20%" />
-    </colgroup>
-  <tr class="summary">
-    <td><%= t(".balance") %></td>
-    <td class="text-end"><%= color_coded_number(@entries.sum(&:time_diff)) %></td>
-  </tr>
-</table>
+<%= turbo_frame_tag :summary do %>
+  <%= render "dashboard/summary" %>
+<% end %>
 
 <!-- Add/Edit -->
 <%= turbo_frame_tag :entry, src: new_entry_path do %>

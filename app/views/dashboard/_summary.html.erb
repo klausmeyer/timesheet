@@ -1,0 +1,10 @@
+<table class="table table-bordered">
+    <colgroup>
+      <col />
+      <col width="20%" />
+    </colgroup>
+  <tr class="summary">
+    <td><%= t(".balance") %></td>
+    <td class="text-end"><%= color_coded_number(@entries.sum(&:time_diff)) %></td>
+  </tr>
+</table>

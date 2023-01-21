@@ -28,7 +28,7 @@ sum     = s.add_style alignment: {horizontal: :right}, num_fmt: 2, b: true
       t(".time_is"),
       t(".time_should"),
       t(".time_diff"),
-      t(".comment"),
+      t(".comment")
     ], style: [header] * 10
 
     week_entries.each do |entry|
@@ -42,7 +42,7 @@ sum     = s.add_style alignment: {horizontal: :right}, num_fmt: 2, b: true
         entry.time_is,
         entry.time_should,
         entry.time_diff,
-        entry.comment,
+        entry.comment
       ], style: [date, column, column, column, number, number, number, number, number, nil]
     end
 
