@@ -344,6 +344,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   rails-i18n
   rspec-rails
+  sassc-rails
   selenium-webdriver
   sprockets-rails
   standard
