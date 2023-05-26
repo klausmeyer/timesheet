@@ -352,7 +352,7 @@ DEPENDENCIES
   importmap-rails
   pg (~> 1.1)
   puma (~> 6.0)
-  rails (~> 7.0.4)
+  rails (~> 7.0.5)
   rails-i18n
   rspec-rails
   sassc-rails
