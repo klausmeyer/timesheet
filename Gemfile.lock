@@ -89,7 +89,6 @@ GEM
       parser (>= 2.4)
       smart_properties
     bigdecimal (3.1.4)
-    bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     bootstrap (5.3.1)
@@ -121,7 +120,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
-    devise (4.9.2)
+    devise (4.9.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
@@ -130,6 +129,10 @@ GEM
     devise-i18n (1.12.0)
       devise (>= 4.9.0)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.1.1)
       ruby2_keywords
     erubi (1.12.0)
@@ -163,12 +166,13 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.6.4)
-      reline (>= 0.3.0)
+    irb (1.8.1)
+      rdoc
+      reline (>= 0.3.8)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
     lint_roller (1.1.0)
-    loofah (2.21.3)
+    loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -203,6 +207,8 @@ GEM
       racc
     pg (1.5.4)
     popper_js (2.11.8)
+    psych (5.1.1)
+      stringio
     public_suffix (5.0.1)
     puma (6.4.0)
       nio4r (~> 2.0)
@@ -249,10 +255,12 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.0.6)
+    rdoc (6.5.0)
+      psych (>= 4.0.0)
     regexp_parser (2.8.1)
-    reline (0.3.3)
+    reline (0.3.9)
       io-console (~> 0.5)
-    responders (3.1.0)
+    responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
@@ -301,7 +309,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.10.0)
+    selenium-webdriver (4.14.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -327,6 +335,7 @@ GEM
       rubocop-performance (~> 1.19.0)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
+    stringio (3.0.8)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.2.2)
@@ -341,17 +350,8 @@ GEM
     unicode-display_width (2.4.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (4.2.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
-    webdrivers (5.3.1)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0, < 4.11)
     webrick (1.8.1)
-    websocket (1.2.9)
+    websocket (1.2.10)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -373,12 +373,13 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
+  dotenv-rails
   factory_bot_rails
   health_check (~> 3.1)
   i18n-tasks
   importmap-rails
   pg (~> 1.1)
-  puma (~> 6.0)
+  puma (>= 5.0)
   rails (~> 7.1.0)
   rails-i18n
   rspec-rails
@@ -388,11 +389,9 @@ DEPENDENCIES
   standard
   stimulus-rails
   turbo-rails
-  web-console
-  webdrivers
 
 RUBY VERSION
    ruby 3.2.2
 
 BUNDLED WITH
-   2.4.3
+   2.4.20

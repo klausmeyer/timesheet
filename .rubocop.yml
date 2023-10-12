@@ -14,3 +14,9 @@ Layout/ExtraSpacing:
 Layout/HashAlignment:
   EnforcedColonStyle: table
   EnforcedHashRocketStyle: table
+
+# Some excludes for default rails files
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - config/application.rb

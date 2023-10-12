@@ -1,9 +1,0 @@
-application:
-  secret_key_base: "changeme"
-
-postgres:
-  enabled: true
-  settings:
-    superuserPassword: "dummy"
-  userDatabase:
-    password: "dummy"
