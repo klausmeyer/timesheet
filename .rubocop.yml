@@ -17,6 +17,22 @@ Layout/HashAlignment:
 
 # Some excludes for default rails files
 
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - config/environments/production.rb
+
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Exclude:
+    - Gemfile
+
+Style/ArgumentsForwarding:
+  Exclude:
+    - bin/setup
+
+Style/GlobalStdStream:
+  Exclude:
+    - config/environments/production.rb
+
 Style/PercentLiteralDelimiters:
   Exclude:
     - config/application.rb
