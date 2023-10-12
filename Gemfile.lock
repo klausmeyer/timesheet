@@ -184,7 +184,7 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
-    msgpack (1.6.0)
+    msgpack (1.7.2)
     mutex_m (0.1.2)
     net-imap (0.4.1)
       date
@@ -314,7 +314,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     smart_properties (1.17.0)
-    sprockets (4.2.0)
+    sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
     sprockets-rails (3.4.2)
