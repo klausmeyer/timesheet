@@ -29,6 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_220512) do
     t.virtual "year", type: :string, as: "date_part('year'::text, date)", stored: true
     t.index ["deleted_at"], name: "index_entries_on_deleted_at"
     t.index ["user_id"], name: "index_entries_on_user_id"
+    t.index ["week"], name: "index_entries_on_week"
+    t.index ["year"], name: "index_entries_on_year"
   end
 
   create_table "users", force: :cascade do |t|
