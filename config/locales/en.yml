@@ -41,7 +41,7 @@ en:
       time_working: Time working
       type: Type
       vacation_days: Vacation Days
-      week: Week
+      week: Week %{week}
       year: Year
     new:
       headline: Add entry

@@ -1,0 +1,34 @@
+<h2>Bulk Edit Week <%= params[:year] %>/<%= params[:week] %></h2>
+
+<%= form_with url: week_path(year: params[:year], week: params[:week]), method: :patch, remote: false do |f| %>
+  <table class="table table-bordered">
+    <colgroup>
+      <col width="20%" />
+      <col width="20%" />
+      <col width="20%" />
+      <col width="20%" />
+      <col />
+    </colgroup>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td class="text-end">
+          <%= l(entry.date, format: :default_html).html_safe %>
+        </td>
+        <td class="text-end">
+           <%= select_tag "entries[#{entry.id}][type]", options_for_select(Entries::AVAILABLE_TYPES), {default: entry.type, class: "form-select"} %>
+        </td>
+        <td class="text-end">
+          <%= time_select "entries[#{entry.id}]", :start_time, {default: entry.start_time}, {class: "form-select d-inline-flex", style: "width: 33%"} %>
+        </td>
+        <td class="text-end">
+          <%= time_select "entries[#{entry.id}]", :end_time, {default: entry.end_time}, {class: "form-select d-inline-flex", style: "width: 33%"} %>
+        </td>
+        <td>
+          <!-- EMPTY -->
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= f.submit nil, class: "btn btn-primary" %>
+<% end %>
