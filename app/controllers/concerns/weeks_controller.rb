@@ -4,7 +4,13 @@ class WeeksController < ApplicationController
   end
 
   def update
-    render json: params.to_unsafe_h
+    Entries::Base.transaction do
+      update_params.each do |id, attributes|
+        current_user.entries.find(id).update!(attributes)
+      end
+    end
+
+    redirect_to root_path
   end
 
   private
@@ -16,12 +22,16 @@ class WeeksController < ApplicationController
     ).to_a
 
     (1..5).each do |cwday|
-      next if @entries.any? { |e| e.date.cwday == cwday }
+      next if @entries.any? { _1.date.cwday == cwday }
 
       @entries << current_user.entries.create!(new_entry_defaults.merge(
         type: "Entries::General",
         date: Date.commercial(params[:year].to_i, params[:week].to_i, cwday)
       ))
     end
+  end
+
+  def update_params
+    params.permit(entries: [:start_time, :end_time]).require(:entries)
   end
 end

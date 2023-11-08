@@ -1,4 +1,4 @@
-<h2>Bulk Edit Week <%= params[:year] %>/<%= params[:week] %></h2>
+<h2 class="my-4">Week <%= params[:week] %> of Year <%= params[:year] %> (Bulk Edit)</h2>
 
 <%= form_with url: week_path(year: params[:year], week: params[:week]), method: :patch, remote: false do |f| %>
   <table class="table table-bordered">
@@ -15,14 +15,31 @@
           <%= l(entry.date, format: :default_html).html_safe %>
         </td>
         <td class="text-end">
-           <%= select_tag "entries[#{entry.id}][type]", options_for_select(Entries::AVAILABLE_TYPES), {default: entry.type, class: "form-select"} %>
+           <%= select_tag "entries[#{entry.id}][type]", options_for_select(Entries::AVAILABLE_TYPES, entry.type), {class: "form-select", disabled: true} %>
         </td>
+        <% case entry %>
+        <% when Entries::General %>
         <td class="text-end">
           <%= time_select "entries[#{entry.id}]", :start_time, {default: entry.start_time}, {class: "form-select d-inline-flex", style: "width: 33%"} %>
         </td>
         <td class="text-end">
           <%= time_select "entries[#{entry.id}]", :end_time, {default: entry.end_time}, {class: "form-select d-inline-flex", style: "width: 33%"} %>
         </td>
+        <% when Entries::Manual %>
+        <td class="text-end">
+           <%= text_field "entries[#{entry.id}]", :time_manual, {value: entry.time_manual, class: "form-control d-inline-flex", style: "width: 66%"} %>
+        </td>
+        <td class="text-end">
+          <!-- EMPTY -->
+        </td>
+        <% else %>
+        <td class="text-end">
+          -
+        </td>
+        <td class="text-end">
+          -
+        </td>
+        <% end %>
         <td>
           <!-- EMPTY -->
         </td>
