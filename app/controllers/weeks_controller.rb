@@ -16,7 +16,7 @@ class WeeksController < ApplicationController
   private
 
   def prepare_entries
-    @entries = current_user.entries.for(
+    @entries = current_user.entries.where(
       year: params[:year],
       week: params[:week]
     ).to_a
