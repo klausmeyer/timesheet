@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2022_11_19_094829) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_07_220512) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,8 +25,12 @@ ActiveRecord::Schema[7.1].define(version: 2022_11_19_094829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.virtual "week", type: :integer, as: "date_part('week'::text, date)", stored: true
+    t.virtual "year", type: :integer, as: "date_part('year'::text, date)", stored: true
     t.index ["deleted_at"], name: "index_entries_on_deleted_at"
     t.index ["user_id"], name: "index_entries_on_user_id"
+    t.index ["week"], name: "index_entries_on_week"
+    t.index ["year"], name: "index_entries_on_year"
   end
 
   create_table "users", force: :cascade do |t|
