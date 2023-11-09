@@ -5,7 +5,7 @@ module Entries
     belongs_to :user
 
     scope :available, -> { where(deleted_at: nil) }
-    scope :sorted_for_dashboard, -> { available.order(Arel.sql("DATE_PART('year', date) DESC, DATE_PART('week', date) DESC, date ASC")) }
+    scope :sorted_for_dashboard, -> { available.order(year: :desc, week: :desc, date: :asc) }
 
     alias_method :really_delete, :delete
 
