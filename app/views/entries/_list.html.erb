@@ -22,7 +22,7 @@
   </table>
 
   <% year_entries.group_by { |e| e.date.cweek }.each do |week, week_entries| %>
-    <h4 class="my-4"><%= t(".week") %> <%= week %></h4>
+    <h4 class="my-4"><%= link_to t(".week", week:), edit_week_path(year:, week:), data: {turbo: false} %></h4>
 
     <table class="table table-bordered">
       <colgroup>

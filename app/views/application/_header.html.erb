@@ -1,7 +1,11 @@
 <div>
   <% if user_signed_in? %>
-    <p>Logged in as <%= current_user.email %> - <%= link_to t(".logout"), destroy_user_session_path %>
+    <p>Logged in as <%= current_user.email %> - <%= link_to t(".logout"), destroy_user_session_path %></p>
 
-    <p>Export: <%= link_to "XLSX", entries_path(format: :xlsx), data: {remote: false} %>
+    <p>
+      <%= link_to "Home", root_path %>
+      |
+      Export: <%= link_to "XLSX", entries_path(format: :xlsx), data: {remote: false} %>
+    </p>
   <% end %>
 </div>
