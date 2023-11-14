@@ -32,6 +32,6 @@ class WeeksController < ApplicationController
   end
 
   def update_params
-    params.permit(entries: [:start_time, :end_time]).require(:entries)
+    params.permit(entries: [:start_time, :end_time, :time_manual]).require(:entries)
   end
 end
