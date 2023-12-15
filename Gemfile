@@ -65,6 +65,11 @@ gem "caxlsx_rails"
 # Simple health check of Rails app. [https://github.com/Purple-Devs/health_check]
 gem "health_check", "~> 3.1"
 
+group :production do
+  # Minimal embedded v8 engine for Ruby [https://github.com/rubyjs/mini_racer]
+  gem "mini_racer", "~> 0.8.0"
+end
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
