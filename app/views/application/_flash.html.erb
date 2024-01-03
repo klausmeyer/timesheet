@@ -1,4 +1,6 @@
 <% flash.each do |type, msg| %>
+  <% type = {"alert" => "info", "notice" => "info"}.fetch(type, type) %>
+
   <%= content_tag :div, class: "alert alert-#{type} alert-dismissible fade show" do %>
     <div class="text-center">
       <%= msg %>

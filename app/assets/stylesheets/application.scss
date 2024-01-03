@@ -14,17 +14,6 @@
  *= require_self
  */
 
- @import "bootstrap";
-
-.alert-alert  { @extend .alert-info; }
-.alert-notice { @extend .alert-info; }
-
-.entries_flextime   { @extend .table-primary; }
-.entries_holiday    { @extend .table-primary; }
-.entries_manual     { @extend .table-warning; }
-.entries_sick_leave { @extend .table-danger;  }
-.entries_vacation   { @extend .table-primary; }
-
 .number-positive {
   color: var(--bs-success);
 }
