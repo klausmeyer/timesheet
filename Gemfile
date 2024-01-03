@@ -47,9 +47,6 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
-# Bootstrap 5 ruby gem for Ruby on Rails (Sprockets/Importmaps) [https://github.com/twbs/bootstrap-rubygem]
-gem "bootstrap"
-
 # Flexible authentication solution for Rails with Warden. [https://github.com/heartcombo/devise]
 gem "devise"
 
